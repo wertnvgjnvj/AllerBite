@@ -164,16 +164,41 @@ struct IngredientImageToMealView: View {
         self.analyzedResult = nil
         self.isAnalyzing.toggle()
 
+//        let prompt = """
+//        From the given image, you need to run the following tasks:
+//        1. Identify the ingredient name
+//        2. Suggest one popular meal name from the given image
+//        3. List other ingredients from the meal name
+//        4. Return the recipes containing other ingredients and steps on how to cook the meal
+//        5. If the image is not an ingredient, just say I don't know
+//        6. Consider the following allergies: \(allergies.joined(separator: ", "))
+//        """
+        
+//        let prompt = """
+//        From the given image, you need to run the following tasks:
+//        1. Identify the main ingredient from the image.
+//        2. Suggest one popular meal based on the image.
+//        3. List other ingredients typically associated with this meal.
+//        4. Provide a recipe containing the identified ingredients and step-by-step cooking instructions.
+//        5. If the image does not depict an ingredient, respond with "I don't know."
+//        6. Consider the following allergies: \(allergies.isEmpty ? "None" : allergies.joined(separator: ", ")).
+//           a. If the main ingredient matches an allergy, return only a warning: "Warning: The main ingredient in this dish contains [allergen]. It is unsafe based on your specified allergies."
+//        7. If no allergies are specified or the main ingredient does not match any allergies, proceed with steps 2 through 4.
+//
+//        """
+
         let prompt = """
-        From the given image, you need to run the following tasks:
-        1. Identify the ingredient name
-        2. Suggest one popular meal name from the given image
-        3. List other ingredients from the meal name
-        4. Return the recipes containing other ingredients and steps on how to cook the meal
-        5. If the image is not an ingredient, just say I don't know
-        6. Consider the following allergies: \(allergies.joined(separator: ", "))
+        From the provided image, perform the following tasks:
+        1. Identify the main ingredient from the image.
+        2. If the main ingredient matches any of the following allergies: \(allergies.isEmpty ? "None" : allergies.joined(separator: ", ")), return the message: "Warning: The main ingredient in this dish contains [allergen]. It is unsafe based on your specified allergies."
+        3. If no allergies are specified or if the main ingredient does not match any allergies, proceed with the following:
+           a. Suggest a popular meal based on the image.
+           b. List other ingredients typically associated with this meal.
+           c. Provide a recipe containing the identified ingredients and step-by-step cooking instructions.
+        4. If the image does not depict an ingredient, respond with "I don't know."
         """
 
+        
         Task {
             do {
                 let response = try await model.generateContent(prompt, uiImage)

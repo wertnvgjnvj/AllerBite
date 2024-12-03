@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C13278A32CB63F1700C38643 /* AllergyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13278A22CB63F1700C38643 /* AllergyViewModel.swift */; };
+		C18C2EBC2CBBB37E00844694 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EBB2CBBB37E00844694 /* User.swift */; };
+		C18C2EBE2CBBB56B00844694 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EBD2CBBB56B00844694 /* AuthViewModel.swift */; };
+		C18C2EC02CBBB61E00844694 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EBF2CBBB61E00844694 /* UserService.swift */; };
+		C18C2EC32CBBB71F00844694 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC22CBBB71F00844694 /* AuthHeaderView.swift */; };
+		C18C2EC52CBBB77200844694 /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC42CBBB77200844694 /* RoundedShape.swift */; };
+		C18C2EC72CBBB7BE00844694 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */; };
+		C1A5CCAF2CFCDD82000EFECC /* helloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A5CCAE2CFCDD82000EFECC /* helloView.swift */; };
+		C1FCAFC12C8B03C700963D98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */; };
 		C80294D42BE8FBA400E1E384 /* SFSymbolStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */; };
 		C80294D62BE8FBCD00E1E384 /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80294D52BE8FBCD00E1E384 /* SymbolPicker.swift */; };
 		C80294D82BE8FBE100E1E384 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80294D72BE8FBE100E1E384 /* TaskRow.swift */; };
 		C804AB732C681E3A00BA6C4D /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = C804AB722C681E3A00BA6C4D /* GoogleGenerativeAI */; };
 		C824B86A2C6A928100332437 /* AllergyView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824B8692C6A928100332437 /* AllergyView1.swift */; };
-		C824B86C2C6A99F900332437 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C824B86B2C6A99F900332437 /* GoogleService-Info.plist */; };
 		C82C13672BF0EC7200976B64 /* displayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C13662BF0EC7200976B64 /* displayView.swift */; };
 		C82C13692BF0FCBF00976B64 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C13682BF0FCBF00976B64 /* ScreenView.swift */; };
 		C84489632BE8F54D002B0DEC /* BarcodeTextScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84489622BE8F54D002B0DEC /* BarcodeTextScannerApp.swift */; };
@@ -77,7 +85,7 @@
 		C88000592BEE2DC100A23EEE /* ResultSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88000582BEE2DC100A23EEE /* ResultSheetView.swift */; };
 		C8D0C13F2BF0B30700DB309F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D0C13E2BF0B30700DB309F /* LoginView.swift */; };
 		C8D0C1412BF0B31B00DB309F /* onBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D0C1402BF0B31B00DB309F /* onBoardingView.swift */; };
-		C8D0C1432BF0B32B00DB309F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D0C1422BF0B32B00DB309F /* RegisterView.swift */; };
+		C8D0C1432BF0B32B00DB309F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D0C1422BF0B32B00DB309F /* RegistrationView.swift */; };
 		C8D0C1472BF0C44800DB309F /* cart.json in Resources */ = {isa = PBXBuildFile; fileRef = C8D0C1462BF0C44800DB309F /* cart.json */; };
 		C8F269352C681F760093BBAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C8F269342C681F760093BBAB /* Lottie */; };
 		C8F83D1E2C63A92A003B7B22 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F83D1D2C63A92A003B7B22 /* APIKey.swift */; };
@@ -102,11 +110,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C13278A22CB63F1700C38643 /* AllergyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyViewModel.swift; sourceTree = "<group>"; };
+		C18C2EBB2CBBB37E00844694 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C18C2EBD2CBBB56B00844694 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C18C2EBF2CBBB61E00844694 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		C18C2EC22CBBB71F00844694 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		C18C2EC42CBBB77200844694 /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
+		C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
+		C1A5CCAE2CFCDD82000EFECC /* helloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloView.swift; sourceTree = "<group>"; };
+		C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolStyling.swift; sourceTree = "<group>"; };
 		C80294D52BE8FBCD00E1E384 /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
 		C80294D72BE8FBE100E1E384 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		C824B8692C6A928100332437 /* AllergyView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyView1.swift; sourceTree = "<group>"; };
-		C824B86B2C6A99F900332437 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C82C13662BF0EC7200976B64 /* displayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayView.swift; sourceTree = "<group>"; };
 		C82C13682BF0FCBF00976B64 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		C84489622BE8F54D002B0DEC /* BarcodeTextScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTextScannerApp.swift; sourceTree = "<group>"; };
@@ -125,7 +141,7 @@
 		C844897E2BE8F96C002B0DEC /* EventSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSymbols.swift; sourceTree = "<group>"; };
 		C84489802BE8F979002B0DEC /* EventTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTask.swift; sourceTree = "<group>"; };
 		C84489842BE8F99F002B0DEC /* HealthPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPlannerApp.swift; sourceTree = "<group>"; };
-		C84489862BE8F9AE002B0DEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C84489862BE8F9AE002B0DEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		C84489882BE8F9C9002B0DEC /* ingredients.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ingredients.json; sourceTree = "<group>"; };
 		C844898E2BE8FB0B002B0DEC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C84489902BE8FB3A002B0DEC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -149,7 +165,7 @@
 		C88000582BEE2DC100A23EEE /* ResultSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSheetView.swift; sourceTree = "<group>"; };
 		C8D0C13E2BF0B30700DB309F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C8D0C1402BF0B31B00DB309F /* onBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingView.swift; sourceTree = "<group>"; };
-		C8D0C1422BF0B32B00DB309F /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		C8D0C1422BF0B32B00DB309F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C8D0C1462BF0C44800DB309F /* cart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cart.json; sourceTree = "<group>"; };
 		C8F83D1D2C63A92A003B7B22 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		C8F83D1F2C63A952003B7B22 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
@@ -207,6 +223,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C18C2EC12CBBB70400844694 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C18C2EC22CBBB71F00844694 /* AuthHeaderView.swift */,
+				C18C2EC42CBBB77200844694 /* RoundedShape.swift */,
+				C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C87C20302BE8F162008184BB = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +256,7 @@
 		C87C203B2BE8F162008184BB /* AllerBite */ = {
 			isa = PBXGroup;
 			children = (
+				C18C2EC12CBBB70400844694 /* Components */,
 				C8D0C13D2BF0B2A800DB309F /* LogIn-SignUp */,
 				C880005C2BEE2E9A00A23EEE /* Browse */,
 				C880005B2BEE2E9200A23EEE /* Scanner */,
@@ -237,8 +264,8 @@
 				C87C203C2BE8F162008184BB /* AllerBiteApp.swift */,
 				C84489622BE8F54D002B0DEC /* BarcodeTextScannerApp.swift */,
 				C84489842BE8F99F002B0DEC /* HealthPlannerApp.swift */,
+				C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */,
 				C8F83D1F2C63A952003B7B22 /* GenerativeAI-Info.plist */,
-				C824B86B2C6A99F900332437 /* GoogleService-Info.plist */,
 				C8D0C1462BF0C44800DB309F /* cart.json */,
 				C84489882BE8F9C9002B0DEC /* ingredients.json */,
 				C87C20402BE8F164008184BB /* Assets.xcassets */,
@@ -301,6 +328,8 @@
 				C844898E2BE8FB0B002B0DEC /* MainView.swift */,
 				C8F83D1D2C63A92A003B7B22 /* APIKey.swift */,
 				C88000582BEE2DC100A23EEE /* ResultSheetView.swift */,
+				C13278A22CB63F1700C38643 /* AllergyViewModel.swift */,
+				C1A5CCAE2CFCDD82000EFECC /* helloView.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -330,8 +359,11 @@
 				C8D0C13E2BF0B30700DB309F /* LoginView.swift */,
 				C85B89652C6A7BDF00AFC922 /* Application.swift */,
 				C8D0C1402BF0B31B00DB309F /* onBoardingView.swift */,
-				C8D0C1422BF0B32B00DB309F /* RegisterView.swift */,
+				C8D0C1422BF0B32B00DB309F /* RegistrationView.swift */,
 				C82C13662BF0EC7200976B64 /* displayView.swift */,
+				C18C2EBB2CBBB37E00844694 /* User.swift */,
+				C18C2EBD2CBBB56B00844694 /* AuthViewModel.swift */,
+				C18C2EBF2CBBB61E00844694 /* UserService.swift */,
 			);
 			path = "LogIn-SignUp";
 			sourceTree = "<group>";
@@ -480,7 +512,7 @@
 				C8D0C1472BF0C44800DB309F /* cart.json in Resources */,
 				C84489892BE8F9C9002B0DEC /* ingredients.json in Resources */,
 				C87C20412BE8F164008184BB /* Assets.xcassets in Resources */,
-				C824B86C2C6A99F900332437 /* GoogleService-Info.plist in Resources */,
+				C1FCAFC12C8B03C700963D98 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +537,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8D0C1432BF0B32B00DB309F /* RegisterView.swift in Sources */,
+				C1A5CCAF2CFCDD82000EFECC /* helloView.swift in Sources */,
+				C8D0C1432BF0B32B00DB309F /* RegistrationView.swift in Sources */,
 				C824B86A2C6A928100332437 /* AllergyView1.swift in Sources */,
 				C88000552BEE2BD900A23EEE /* CameraPhotoCapture.swift in Sources */,
 				C88000592BEE2DC100A23EEE /* ResultSheetView.swift in Sources */,
@@ -523,11 +556,15 @@
 				C84489812BE8F979002B0DEC /* EventTask.swift in Sources */,
 				C8D0C1412BF0B31B00DB309F /* onBoardingView.swift in Sources */,
 				C87C206C2BE8F43E008184BB /* AllergyView.swift in Sources */,
+				C18C2EC02CBBB61E00844694 /* UserService.swift in Sources */,
+				C18C2EBC2CBBB37E00844694 /* User.swift in Sources */,
+				C18C2EC52CBBB77200844694 /* RoundedShape.swift in Sources */,
 				C84489772BE8F939002B0DEC /* EventDetail.swift in Sources */,
 				C85E2B542C6A062F00CD448B /* MealImageToRecipeView.swift in Sources */,
 				C844897B2BE8F94F002B0DEC /* EventList.swift in Sources */,
 				C84489792BE8F944002B0DEC /* EventEditor.swift in Sources */,
 				C844898F2BE8FB0B002B0DEC /* MainView.swift in Sources */,
+				C18C2EC32CBBB71F00844694 /* AuthHeaderView.swift in Sources */,
 				C85E2B4E2C6A059100CD448B /* AIRecipieView.swift in Sources */,
 				C84489912BE8FB3A002B0DEC /* ProfileView.swift in Sources */,
 				C84489852BE8F99F002B0DEC /* HealthPlannerApp.swift in Sources */,
@@ -541,7 +578,10 @@
 				C844897D2BE8F95F002B0DEC /* EventRow.swift in Sources */,
 				C8F83D1E2C63A92A003B7B22 /* APIKey.swift in Sources */,
 				C85E2B522C6A062500CD448B /* IngredientImageToMealView.swift in Sources */,
+				C18C2EC72CBBB7BE00844694 /* CustomInputField.swift in Sources */,
 				C85E2B4C2C6A054100CD448B /* VegPreferenceView.swift in Sources */,
+				C18C2EBE2CBBB56B00844694 /* AuthViewModel.swift in Sources */,
+				C13278A32CB63F1700C38643 /* AllergyViewModel.swift in Sources */,
 				C85B89662C6A7BDF00AFC922 /* Application.swift in Sources */,
 				C82C13692BF0FCBF00976B64 /* ScreenView.swift in Sources */,
 			);
@@ -707,7 +747,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllerBite/Preview Content\"";
-				DEVELOPMENT_TEAM = RLBH3H796P;
+				DEVELOPMENT_TEAM = L4G9QAAPV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AllerBite/Info.plist;
@@ -722,7 +762,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdityaGaba-adityagaba.onmicrosoft.com.AllerBite";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AllerBite1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -738,7 +778,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllerBite/Preview Content\"";
-				DEVELOPMENT_TEAM = RLBH3H796P;
+				DEVELOPMENT_TEAM = L4G9QAAPV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AllerBite/Info.plist;
@@ -753,7 +793,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdityaGaba-adityagaba.onmicrosoft.com.AllerBite";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AllerBite1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -768,7 +808,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RLBH3H796P;
+				DEVELOPMENT_TEAM = L4G9QAAPV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
@@ -788,7 +828,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RLBH3H796P;
+				DEVELOPMENT_TEAM = L4G9QAAPV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
@@ -807,10 +847,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RLBH3H796P;
+				DEVELOPMENT_TEAM = L4G9QAAPV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdityaGaba-adityagaba.onmicrosoft.com.AllerBiteUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AllerBite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -825,10 +865,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RLBH3H796P;
+				DEVELOPMENT_TEAM = L4G9QAAPV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdityaGaba-adityagaba.onmicrosoft.com.AllerBiteUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AllerBite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

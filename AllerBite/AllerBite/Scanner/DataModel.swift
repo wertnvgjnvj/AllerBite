@@ -2,16 +2,25 @@ import Foundation
 
 // UserModel.swift
 
-class User {
+struct User: Codable, Identifiable {
+    var id: String
     var username: String
     var age: Int
-    
-    init(username: String, age: Int) {
+    var email: String
+    var allergies: [String] // Add allergies property
+
+    // Initializer for the User model
+    init(id: String, username: String, age: Int, email: String, allergies: [String] = []) {
+        self.id = id
         self.username = username
         self.age = age
-       
+        self.email = email
+        self.allergies = allergies
     }
 }
+
+
+
 
 
 

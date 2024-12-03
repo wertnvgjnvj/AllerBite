@@ -44,6 +44,7 @@ struct ScreenView: View {
     @State private var isSheetVisible = false
      var userName: String = ""
     
+    
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
@@ -85,8 +86,9 @@ struct ScreenView: View {
                     
                     TabView(selection: $selection) {
                         // Home Tab
-                        HomeView(userName: "Aditya Gaba")
-                            .offset(y:0)
+//                        HomeView(userName: "Aditya Gaba")
+                        HomeView(userViewModel: UserViewModel())
+                        .offset(y:0)
                             .tabItem {
                                 CustomTabItem(imageName: "house.fill", text: "Home")
                             }

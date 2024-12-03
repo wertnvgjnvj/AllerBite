@@ -165,15 +165,40 @@ struct MealImageToRecipeView: View {
         self.analyzedResult = nil
         self.isAnalyzing.toggle()
 
+//        let prompt = """
+//        From the given image, perform the following tasks:
+//        1. Identify the ingredient(s) in the image.
+//        2. Suggest one popular meal based on the image.
+//        3. List other ingredients typically associated with this meal.
+//        4. Provide a recipe containing the identified ingredients and step-by-step cooking instructions.
+//        5. If the image doesn't clearly represent food or ingredients, respond with "I don't know."
+//        6. Consider the following allergies: \(allergies.joined(separator: ", ")).
+//        7. If any of the ingredients in the image match an allergy, respond with a warning that the meal contains allergens.
+//        8. If the meal appears to be the same as one of the specified allergies, suggest alternatives or modifications to avoid the allergen.
+//"""
+
+//        let prompt = """
+//        From the given image, perform the following tasks:
+//        1. Identify the main ingredient from the image.
+//        2. If the following allergies are specified: \(allergies.isEmpty ? "None" : allergies.joined(separator: ", ")), check if the identified main ingredient matches any of them.
+//           a. If the main ingredient matches an allergy, return only a warning: "Warning: The main ingredient in this dish contains [allergen]. It is unsafe based on your specified allergies."
+//        3. If no allergies are specified or the main ingredient does not match any of the allergies, proceed with the following:
+//           a. Suggest a popular meal based on the image.
+//           b. List other ingredients typically associated with the meal.
+//           c. Provide a recipe containing the identified ingredients with step-by-step cooking instructions.
+//
+//"""
         let prompt = """
-        From the given image, you need to run the following tasks:
-        1. Identify the ingredient name
-        2. Suggest one popular meal name from the given image
-        3. List other ingredients from the meal name
-        4. Return the recipes containing other ingredients and steps on how to cook the meal
-        5. If the image is not an ingredient, just say I don't know
-        6. Consider the following allergies: \(allergies.joined(separator: ", "))
+        Analyze the provided image and complete the following tasks:
+        1. Identify the ingredient(s) shown in the image.
+        2. Check if any of the identified ingredients match the following allergies: \(allergies.joined(separator: ", ")).
+        3. If any ingredient matches an allergy, automatically suggest suitable substitutions and provide an allergy-free recipe.
+        4. If no allergens are detected, provide a regular recipe with step-by-step instructions.
+        5. If the image is unclear or does not show food or ingredients, respond with "The image is not clear. Please provide a clearer image."
+        6. Ensure the final recipe is completely safe for individuals with the specified allergies.
         """
+
+
 
         Task {
             do {

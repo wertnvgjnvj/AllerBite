@@ -91,6 +91,7 @@ struct onBoardingView: View {
                         
                     }
                     else{
+                        
                         TabView {
                             ForEach(onboardingData, id: \.self) { info in
                                 onBoardingContentView(info: info)
@@ -100,6 +101,8 @@ struct onBoardingView: View {
                         .fullScreenCover(isPresented: $isOnboarded) {
                             // Your main app view
                         }
+                        
+                        
                     }
                 }
             }
