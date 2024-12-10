@@ -557,6 +557,256 @@
 
 
 
+//import SwiftUI
+//import VisionKit
+//import AVFoundation
+//import GoogleGenerativeAI
+//
+//struct DataScannerView: UIViewControllerRepresentable {
+//    @Binding var recognizedItems: [RecognizedItem]
+//    @Binding var showAlert: Bool
+//    @Binding var navigateToHelloView: Bool // Added navigation state
+//    let recognizedDataType: DataScannerViewController.RecognizedDataType
+//    let recognizesMultipleItems: Bool
+//    var cameraCapture: CameraPhotoCapture
+//    @Binding var selectedAllergies: Set<String>
+//    @Binding var responseText: String
+//
+//    func makeUIViewController(context: Context) -> DataScannerViewController {
+//        let vc = DataScannerViewController(
+//            recognizedDataTypes: [recognizedDataType],
+//            qualityLevel: .balanced,
+//            recognizesMultipleItems: recognizesMultipleItems,
+//            isGuidanceEnabled: true,
+//            isHighlightingEnabled: true
+//        )
+//        vc.delegate = context.coordinator
+//        context.coordinator.dataScanner = vc
+//        return vc
+//    }
+//
+//    func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
+//        if navigateToHelloView {
+//            uiViewController.stopScanning()
+//        } else {
+//            try? uiViewController.startScanning()
+//        }
+//    }
+//
+//    func makeCoordinator() -> Coordinator {
+//        Coordinator(
+//            recognizedItems: $recognizedItems,
+//            showAlert: $showAlert,
+//            navigateToHelloView: $navigateToHelloView, // Updated binding
+//            cameraCapture: cameraCapture,
+//            selectedAllergies: selectedAllergies,
+//            responseText: $responseText
+//        )
+//    }
+//
+//    class Coordinator: NSObject, DataScannerViewControllerDelegate {
+//        @Binding var recognizedItems: [RecognizedItem]
+//        @Binding var showAlert: Bool
+//        @Binding var navigateToHelloView: Bool // Control navigation to HelloView
+//        var capturedImage: UIImage?
+//        var cameraCapture: CameraPhotoCapture
+//        var selectedAllergies: Set<String>
+//        var dataScanner: DataScannerViewController?
+//        @Binding var responseText: String
+//
+//        init(recognizedItems: Binding<[RecognizedItem]>, showAlert: Binding<Bool>, navigateToHelloView: Binding<Bool>, cameraCapture: CameraPhotoCapture, selectedAllergies: Set<String>, responseText: Binding<String>) {
+//            self._recognizedItems = recognizedItems
+//            self._showAlert = showAlert
+//            self._navigateToHelloView = navigateToHelloView // Initialize navigation state
+//            self.cameraCapture = cameraCapture
+//            self.selectedAllergies = selectedAllergies
+//            self._responseText = responseText
+//            super.init()
+//        }
+//
+//        func dataScanner(_ dataScanner: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems: [RecognizedItem]) {
+//            for item in addedItems {
+//                switch item {
+//                case .text(let text):
+//                    Task {
+//                        await checkForAllergens(text.transcript)
+//                        self.navigateToHelloView = true // Trigger navigation
+//                    }
+//                default:
+//                    break
+//                }
+//            }
+//        }
+//
+//        func checkForAllergens(_ text: String) async {
+//            do {
+//                let model = GenerativeModel(
+//                    name: "gemini-1.5-flash",
+//                    apiKey: APIKey.default
+//                )
+//
+////                let allergiesPrompt = selectedAllergies.isEmpty
+////                    ? "Analyze the ingredients."
+////                    : "Analyze the following text and identify any ingredients that could be harmful based on the following allergies: \(selectedAllergies.joined(separator: ", "))."
+//                let allergiesPrompt = FirestoreManager.userSavedAllergies.isEmpty
+//                    ? "Safe"
+//                    : "Unsafe if it contains any one of the following: \(FirestoreManager.userSavedAllergies.joined(separator: " or ")). Otherwise, Safe."
+//                print(allergiesPrompt)
+//
+//                
+//                print("data scanner view allergies -------------------->>>>>>>>>>> \(FirestoreManager.userSavedAllergies)")
+//                let chatSession = model.startChat(history: [])
+//                let response = try await chatSession.sendMessage("\(allergiesPrompt) \(text)")
+//                self.responseText = response.text ?? "No response received"
+//                  
+////                print("Gemini response: \(self.responseText)")
+//
+//                if response.text?.containsAllergen(for: selectedAllergies) ?? false {
+//                    print("Allergen detected!")
+//                    showAlert = true
+//                }
+//            } catch {
+//                DispatchQueue.main.async {
+//                    self.responseText = "Error: \(error.localizedDescription)"
+//                }
+//                print("Error during allergen check: \(error.localizedDescription)")
+//            }
+//        }
+//
+//        func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {
+//            self.recognizedItems = recognizedItems.filter { item in
+//                !removedItems.contains(where: { $0.id == item.id })
+//            }
+//        }
+//
+//        func dataScanner(_ dataScanner: DataScannerViewController, becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable) {
+//            print("became unavailable with error \(error.localizedDescription)")
+//        }
+//    }
+//}
+//
+//extension String {
+//    func containsAllergen(for allergens: Set<String>) -> Bool {
+//        for allergen in allergens {
+//            if self.localizedCaseInsensitiveContains(allergen) {
+//                return true
+//            }
+//        }
+//        return false
+//    }
+//}
+
+// from here
+//import SwiftUI
+//import VisionKit
+//import AVFoundation
+//import GoogleGenerativeAI
+//struct DataScannerView: UIViewControllerRepresentable {
+//    @Binding var recognizedItems: [RecognizedItem]
+//    @Binding var showAlert: Bool
+//    @Binding var navigateToHelloView: Bool
+//    let recognizedDataType: DataScannerViewController.RecognizedDataType
+//    let recognizesMultipleItems: Bool
+//    var cameraCapture: CameraPhotoCapture
+//    @Binding var selectedAllergies: Set<String>
+//    @Binding var responseText: String
+//
+//    func makeUIViewController(context: Context) -> DataScannerViewController {
+//        let vc = DataScannerViewController(
+//            recognizedDataTypes: [recognizedDataType],
+//            qualityLevel: .balanced,
+//            recognizesMultipleItems: recognizesMultipleItems,
+//            isGuidanceEnabled: true,
+//            isHighlightingEnabled: true
+//        )
+//        vc.delegate = context.coordinator
+//        context.coordinator.dataScanner = vc
+//        return vc
+//    }
+//
+//    func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
+//        if navigateToHelloView {
+//            uiViewController.stopScanning()
+//        } else {
+//            try? uiViewController.startScanning()
+//        }
+//    }
+//
+//    func makeCoordinator() -> Coordinator {
+//        Coordinator(
+//            recognizedItems: $recognizedItems,
+//            showAlert: $showAlert,
+//            navigateToHelloView: $navigateToHelloView,
+//            cameraCapture: cameraCapture,
+//            selectedAllergies: selectedAllergies,
+//            responseText: $responseText
+//        )
+//    }
+//
+//    class Coordinator: NSObject, DataScannerViewControllerDelegate {
+//        @Binding var recognizedItems: [RecognizedItem]
+//        @Binding var showAlert: Bool
+//        @Binding var navigateToHelloView: Bool
+//        var cameraCapture: CameraPhotoCapture
+//        var selectedAllergies: Set<String>
+//        @Binding var responseText: String
+//        var dataScanner: DataScannerViewController?
+//
+//        init(recognizedItems: Binding<[RecognizedItem]>, showAlert: Binding<Bool>, navigateToHelloView: Binding<Bool>, cameraCapture: CameraPhotoCapture, selectedAllergies: Set<String>, responseText: Binding<String>) {
+//            self._recognizedItems = recognizedItems
+//            self._showAlert = showAlert
+//            self._navigateToHelloView = navigateToHelloView
+//            self.cameraCapture = cameraCapture
+//            self.selectedAllergies = selectedAllergies
+//            self._responseText = responseText
+//            super.init()
+//        }
+//
+//        func dataScanner(_ dataScanner: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems: [RecognizedItem]) {
+//            for item in addedItems {
+//                switch item {
+//                case .text(let text):
+//                    Task {
+//                        await checkForAllergens(text.transcript)
+//                        self.navigateToHelloView = true
+//                    }
+//                default:
+//                    break
+//                }
+//            }
+//        }
+//
+//        func checkForAllergens(_ text: String) async {
+//            do {
+//                let model = GenerativeModel(
+//                    name: "gemini-1.5-flash",
+//                    apiKey: APIKey.default
+//                )
+//
+//                let allergiesPrompt = FirestoreManager.userSavedAllergies.isEmpty
+//                                ? "Analyze the ingredients and provide a verdict if the product is safe to consume for the general audience."
+//                                : "Analyze the following text and determine if this product is safe based on these allergies: \(FirestoreManager.userSavedAllergies.joined(separator: " or ")). Provide a clear verdict of safety at the end."
+//
+//                let chatSession = model.startChat(history: [])
+//                let response = try await chatSession.sendMessage("\(allergiesPrompt) \(text)")
+//                self.responseText = response.text ?? "No response received"
+//
+//                if response.text?.contains("unsafe") == true {
+//                    showAlert = true
+//                }
+//            } catch {
+//                DispatchQueue.main.async {
+//                    self.responseText = "Error: \(error.localizedDescription)"
+//                }
+//                print("Error during allergen check: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+//}
+//
+//
+
+
 import SwiftUI
 import VisionKit
 import AVFoundation
@@ -565,7 +815,7 @@ import GoogleGenerativeAI
 struct DataScannerView: UIViewControllerRepresentable {
     @Binding var recognizedItems: [RecognizedItem]
     @Binding var showAlert: Bool
-    @Binding var navigateToHelloView: Bool // Added navigation state
+    @Binding var navigateToHelloView: Bool
     let recognizedDataType: DataScannerViewController.RecognizedDataType
     let recognizesMultipleItems: Bool
     var cameraCapture: CameraPhotoCapture
@@ -597,7 +847,7 @@ struct DataScannerView: UIViewControllerRepresentable {
         Coordinator(
             recognizedItems: $recognizedItems,
             showAlert: $showAlert,
-            navigateToHelloView: $navigateToHelloView, // Updated binding
+            navigateToHelloView: $navigateToHelloView,
             cameraCapture: cameraCapture,
             selectedAllergies: selectedAllergies,
             responseText: $responseText
@@ -607,17 +857,16 @@ struct DataScannerView: UIViewControllerRepresentable {
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         @Binding var recognizedItems: [RecognizedItem]
         @Binding var showAlert: Bool
-        @Binding var navigateToHelloView: Bool // Control navigation to HelloView
-        var capturedImage: UIImage?
+        @Binding var navigateToHelloView: Bool
         var cameraCapture: CameraPhotoCapture
         var selectedAllergies: Set<String>
-        var dataScanner: DataScannerViewController?
         @Binding var responseText: String
+        var dataScanner: DataScannerViewController?
 
         init(recognizedItems: Binding<[RecognizedItem]>, showAlert: Binding<Bool>, navigateToHelloView: Binding<Bool>, cameraCapture: CameraPhotoCapture, selectedAllergies: Set<String>, responseText: Binding<String>) {
             self._recognizedItems = recognizedItems
             self._showAlert = showAlert
-            self._navigateToHelloView = navigateToHelloView // Initialize navigation state
+            self._navigateToHelloView = navigateToHelloView
             self.cameraCapture = cameraCapture
             self.selectedAllergies = selectedAllergies
             self._responseText = responseText
@@ -629,8 +878,9 @@ struct DataScannerView: UIViewControllerRepresentable {
                 switch item {
                 case .text(let text):
                     Task {
-                        await checkForAllergens(text.transcript)
-                        self.navigateToHelloView = true // Trigger navigation
+                        // Process the captured text
+                        await processScannedIngredients(text.transcript)
+                        self.navigateToHelloView = true
                     }
                 default:
                     break
@@ -638,54 +888,43 @@ struct DataScannerView: UIViewControllerRepresentable {
             }
         }
 
-        func checkForAllergens(_ text: String) async {
+        func processScannedIngredients(_ scannedText: String) async {
             do {
                 let model = GenerativeModel(
                     name: "gemini-1.5-flash",
                     apiKey: APIKey.default
                 )
 
-                let allergiesPrompt = selectedAllergies.isEmpty
-                    ? "Analyze the ingredients."
-                    : "Analyze the following text and identify any ingredients that could be harmful based on the following allergies: \(selectedAllergies.joined(separator: ", "))."
+                // Constructing a comprehensive prompt for better AI understanding
+                let allergiesPrompt = FirestoreManager.userSavedAllergies.isEmpty
+                    ? "Below is the list of ingredients. Analyze them and determine if the product is safe for general use. If unsafe, explain why."
+                    : "Below is the list of ingredients. Check if any of these ingredients match the following allergies: \(FirestoreManager.userSavedAllergies.joined(separator: ", ")). If unsafe, explain why."
+
+                let prompt = """
+                \(allergiesPrompt)
+
+                Ingredients:
+                \(scannedText)
+                """
 
                 let chatSession = model.startChat(history: [])
-                let response = try await chatSession.sendMessage("\(allergiesPrompt) \(text)")
-                self.responseText = response.text ?? "No response received"
+                let response = try await chatSession.sendMessage(prompt)
 
-                print("Gemini response: \(self.responseText)")
+                DispatchQueue.main.async {
+                    self.responseText = response.text ?? "No detailed response received from Gemini."
+                }
 
-                if response.text?.containsAllergen(for: selectedAllergies) ?? false {
-                    print("Allergen detected!")
-                    showAlert = true
+                if let response = response.text, response.lowercased().contains("unsafe") {
+                    DispatchQueue.main.async {
+                        self.showAlert = true
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
                     self.responseText = "Error: \(error.localizedDescription)"
                 }
-                print("Error during allergen check: \(error.localizedDescription)")
+                print("Error during ingredient analysis: \(error.localizedDescription)")
             }
         }
-
-        func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-            self.recognizedItems = recognizedItems.filter { item in
-                !removedItems.contains(where: { $0.id == item.id })
-            }
-        }
-
-        func dataScanner(_ dataScanner: DataScannerViewController, becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable) {
-            print("became unavailable with error \(error.localizedDescription)")
-        }
-    }
-}
-
-extension String {
-    func containsAllergen(for allergens: Set<String>) -> Bool {
-        for allergen in allergens {
-            if self.localizedCaseInsensitiveContains(allergen) {
-                return true
-            }
-        }
-        return false
     }
 }

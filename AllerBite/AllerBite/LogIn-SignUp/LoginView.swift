@@ -191,6 +191,7 @@ struct LoginView: View {
     @State private var isLoginSuccessful = false
     @State private var userName: String = ""
     @State private var isSignedOut = false // State variable to track sign-out
+   
 
     var body: some View {
         NavigationView {
@@ -238,7 +239,7 @@ struct LoginView: View {
                 .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
                 .disabled(email.isEmpty || password.isEmpty)
 
-                NavigationLink(destination: ScreenView(userName: userName), isActive: $isLoginSuccessful) {
+                NavigationLink(destination: ScreenView( userName: userName), isActive: $isLoginSuccessful) {
                     EmptyView()
                 }
 
@@ -385,9 +386,7 @@ struct LoginView: View {
     }
 }
 
-#Preview {
-    LoginView()
-}
+
 
 //import SwiftUI
 //

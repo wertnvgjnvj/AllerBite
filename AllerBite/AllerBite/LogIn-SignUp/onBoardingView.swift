@@ -11,7 +11,7 @@ struct OnboardingInfo: Identifiable, Hashable {
 
 struct onBoardingContentView: View {
   let info: OnboardingInfo
-
+   
   var body: some View {
     VStack {
       Image(info.logoImageName)
@@ -63,6 +63,7 @@ struct onBoardingContentView: View {
 struct onBoardingView: View {
     @State private var showSplash = true
     @AppStorage("isOnboarded") var isOnboarded: Bool = false
+    
     let onboardingData: [OnboardingInfo] = [
         OnboardingInfo(
             title: "Welcome to",
@@ -134,8 +135,4 @@ struct LottieView: UIViewRepresentable {
     }
 }
 
-
-#Preview {
-  onBoardingView()
-}
 

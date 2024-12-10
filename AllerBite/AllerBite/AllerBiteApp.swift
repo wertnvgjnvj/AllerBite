@@ -140,7 +140,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 class AppViewModel1: ObservableObject {
     @Published var isLoggedIn: Bool = false
-
+    
+        
     init() {
         // Check for an existing Firebase user session
         self.isLoggedIn = Auth.auth().currentUser != nil
@@ -163,17 +164,18 @@ class AppViewModel1: ObservableObject {
 }
 
 @main
+
 struct AllerBiteApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var appViewModel = AppViewModel1()
-
+    
     var body: some Scene {
         WindowGroup {
             if appViewModel.isLoggedIn {
-                ContentView() // Show the main content if user is logged in
+                ContentView() // Replace `.constant([])` with the actual state source
                     .environmentObject(appViewModel)
             } else {
-                onBoardingView() // Show the onboarding/login screen if user is not logged in
+                onBoardingView()
                     .environmentObject(appViewModel)
             }
         }

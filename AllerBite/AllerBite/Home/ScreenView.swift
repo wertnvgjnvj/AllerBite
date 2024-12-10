@@ -42,6 +42,7 @@ struct ScreenView: View {
     @GestureState private var dragOffset: CGSize = .zero
     @State private var selectedTab = 0
     @State private var isSheetVisible = false
+   
      var userName: String = ""
     
     
@@ -129,6 +130,3 @@ struct CustomTabItem: View {
     }
 }
 
-#Preview{
-    ScreenView()
-}

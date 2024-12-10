@@ -15,6 +15,7 @@
 		C18C2EC52CBBB77200844694 /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC42CBBB77200844694 /* RoundedShape.swift */; };
 		C18C2EC72CBBB7BE00844694 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */; };
 		C1A5CCAF2CFCDD82000EFECC /* helloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A5CCAE2CFCDD82000EFECC /* helloView.swift */; };
+		C1EA874E2D035C5C00AAE73E /* AllergySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EA874D2D035C5C00AAE73E /* AllergySelectionView.swift */; };
 		C1FCAFC12C8B03C700963D98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */; };
 		C80294D42BE8FBA400E1E384 /* SFSymbolStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */; };
 		C80294D62BE8FBCD00E1E384 /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80294D52BE8FBCD00E1E384 /* SymbolPicker.swift */; };
@@ -118,6 +119,7 @@
 		C18C2EC42CBBB77200844694 /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
 		C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		C1A5CCAE2CFCDD82000EFECC /* helloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloView.swift; sourceTree = "<group>"; };
+		C1EA874D2D035C5C00AAE73E /* AllergySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergySelectionView.swift; sourceTree = "<group>"; };
 		C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolStyling.swift; sourceTree = "<group>"; };
 		C80294D52BE8FBCD00E1E384 /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
@@ -319,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				C87C206D2BE8F4BB008184BB /* AppViewModel.swift */,
-				C87C206B2BE8F43E008184BB /* AllergyView.swift */,
 				C824B8692C6A928100332437 /* AllergyView1.swift */,
 				C84489662BE8F72A002B0DEC /* CameraScannerView.swift */,
 				C88000542BEE2BD900A23EEE /* CameraPhotoCapture.swift */,
@@ -337,6 +338,7 @@
 		C880005C2BEE2E9A00A23EEE /* Browse */ = {
 			isa = PBXGroup;
 			children = (
+				C87C206B2BE8F43E008184BB /* AllergyView.swift */,
 				C84489682BE8F765002B0DEC /* ColorOption.swift */,
 				C84489722BE8F919002B0DEC /* Event.swift */,
 				C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */,
@@ -345,6 +347,7 @@
 				C84489742BE8F92B002B0DEC /* EventData.swift */,
 				C84489762BE8F939002B0DEC /* EventDetail.swift */,
 				C84489782BE8F944002B0DEC /* EventEditor.swift */,
+				C1EA874D2D035C5C00AAE73E /* AllergySelectionView.swift */,
 				C844897A2BE8F94F002B0DEC /* EventList.swift */,
 				C844897C2BE8F95F002B0DEC /* EventRow.swift */,
 				C844897E2BE8F96C002B0DEC /* EventSymbols.swift */,
@@ -559,6 +562,7 @@
 				C18C2EC02CBBB61E00844694 /* UserService.swift in Sources */,
 				C18C2EBC2CBBB37E00844694 /* User.swift in Sources */,
 				C18C2EC52CBBB77200844694 /* RoundedShape.swift in Sources */,
+				C1EA874E2D035C5C00AAE73E /* AllergySelectionView.swift in Sources */,
 				C84489772BE8F939002B0DEC /* EventDetail.swift in Sources */,
 				C85E2B542C6A062F00CD448B /* MealImageToRecipeView.swift in Sources */,
 				C844897B2BE8F94F002B0DEC /* EventList.swift in Sources */,
