@@ -153,9 +153,10 @@ struct ContentView: View {
     @State private var isMainViewActive = false
     @State var isActive: Bool = false
     @GestureState private var dragOffset: CGSize = .zero
-    @State private var selectedTab = 0
+//    @State private var selectedTab = 0
     @State private var isSheetVisible = false
     @State private var userName: String = ""
+    @StateObject var tabManager = TabSelectionManager.shared
     
     
     @StateObject var viewModel = UserViewModel() // Access the shared AuthViewModel
@@ -192,7 +193,7 @@ struct ContentView: View {
                             .offset(y: 40)
                         }
                         
-                        TabView(selection: $selection) {
+                        TabView(selection: $tabManager.selectedTab) {
                             // Home Tab
                             HomeView()
                                 .offset(y: 0)
@@ -209,12 +210,17 @@ struct ContentView: View {
                                 .tag(1)
                             
                             // Browse Tab
-                            HealthPlannerContentView()
-                                .tabItem {
-                                    CustomTabItem(imageName: "square.grid.2x2.fill", text: "Browse")
-                                }
-                                .tag(2)
+//                            AIRecipeView()
+//                                .tabItem {
+//                                    CustomTabItem(imageName: "fork.knife", text: "Recipe")
+//                                }
+//                                .tag(2)
                         }
+                        .onChange(of: tabManager.selectedTab) { newValue in
+                                    if newValue != 1 {
+                                        tabManager.resetScanner() // Reset scanner when leaving the scanner tab
+                                    }
+                                }
                         .accentColor(Color(red: 79 / 255, green: 143 / 255, blue: 0 / 255))
                     }
                 }
@@ -222,4 +228,16 @@ struct ContentView: View {
             }
         }.navigationBarBackButtonHidden(true)
     }
+}
+
+
+
+
+class TabSelectionManager: ObservableObject {
+    static let shared = TabSelectionManager()
+    @Published var selectedTab: Int = 0
+    @Published var resetScannerFlag: Bool = false
+    func resetScanner() {
+            resetScannerFlag = true
+        }
 }

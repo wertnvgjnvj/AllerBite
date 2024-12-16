@@ -500,16 +500,29 @@ struct ProfileView: View {
                 .font(.system(size: 20).bold())
                 .textCase(.none)
                 .offset(x: -19)) {
-                NavigationLink(destination: HealthView()) {
-                    Text("Apps and Services")
+                
+                // Apps and Services
+                Button(action: {
+                    openURL("https://allerbite-website.vercel.app/#About")
+                }) {
+                    Text("About App")
                 }
-                NavigationLink(destination: HealthView()) {
-                    Text("Research Studies")
+
+                // Research Studies
+                Button(action: {
+                    openURL("https://allerbite-website.vercel.app/#Team")
+                }) {
+                    Text("About Us")
                 }
-                NavigationLink(destination: HealthView()) {
-                    Text("Devices")
+
+                // Devices
+                Button(action: {
+                    openURL("https://allerbite-website.vercel.app/privacy")
+                }) {
+                    Text("Privacy")
                 }
             }
+
 
             // Sign Out and Close Account
             Section {
@@ -562,6 +575,14 @@ struct ProfileView: View {
         let initials = components.prefix(2).map { $0.first.map(String.init) ?? "" }.joined()
         return initials.uppercased()
     }
+    func openURL(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("Invalid URL: \(urlString)")
+        }
+    }
+
 
     private func signOutUser() {
         do {

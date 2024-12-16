@@ -2287,7 +2287,7 @@ struct ResultView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(
-                        destination: AllergySelectionView(), // Target view
+                        destination: AIRecipeView(), // Target view
                         isActive: $navigateToAllergySelection
                     ) {
                         Button("Done") {

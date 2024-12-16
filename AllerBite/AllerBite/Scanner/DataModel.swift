@@ -1,33 +1,27 @@
 import Foundation
 
-// UserModel.swift
-
-struct User: Codable, Identifiable {
+struct User: Codable, Identifiable,Equatable {
     var id: String
     var username: String
-    var age: Int
     var email: String
-    var allergies: [String] // Add allergies property
+    var allergies: [String]
+    var veg: String
+    var isVerified:Bool
 
-    // Initializer for the User model
-    init(id: String, username: String, age: Int, email: String, allergies: [String] = []) {
+    init(id: String, username: String, email: String, allergies: [String] = [], veg
+    : String,isVerified:Bool) {
         self.id = id
         self.username = username
-        self.age = age
+        
         self.email = email
         self.allergies = allergies
+        self.veg = veg
+        self.isVerified = isVerified
     }
 }
 
-
-
-
-
-
-// HomeScreenModel.swift
-
 class HomeScreenPreferences {
-    var allergenPreference: Bool // true for allergen-free, false otherwise
+    var allergenPreference: Bool
     var foodPreference: FoodType
     
     init(allergenPreference: Bool, foodPreference: FoodType) {
@@ -55,18 +49,7 @@ struct ProductNamespace {
     }
 }
 
-//class ScannerData {
-//    var productName: String
-//    var ingredients: [ProductNamespace.Ingredient]
-//
-//    init(productName: String, ingredients: [ProductNamespace.Ingredient]) {
-//        self.productName = productName
-//        self.ingredients = ingredients
-//    }
-//}
 
-
-// Another view for home screen
 
 class HomeViewModel {
     var userPreferences: HomeScreenPreferences
@@ -76,7 +59,6 @@ class HomeViewModel {
     }
     
     func checkProductCompatibility(product: ScannerData) -> Bool {
-        // Check if the product meets the user's preferences
         let isAllergenFree = !product.ingredients.contains { $0.isAllergen }
         let isFoodTypeCompatible = isCompatibleFoodType(foodType: product.foodType)
         
@@ -96,23 +78,17 @@ class HomeViewModel {
 }
 
 
-
-// scanner view model
-
 class ScannerData {
     var productName: String
     var ingredients: [ProductNamespace.Ingredient]
-    var foodType: FoodType // Add foodType property
+    var foodType: FoodType 
     
     init(productName: String, ingredients: [ProductNamespace.Ingredient], foodType: FoodType) {
         self.productName = productName
         self.ingredients = ingredients
-        self.foodType = foodType // Initialize foodType property
+        self.foodType = foodType
     }
 }
-
-
-// HealthPlannerModel.swift
 
 class HealthPlannerData {
     var appointments: [Appointment]

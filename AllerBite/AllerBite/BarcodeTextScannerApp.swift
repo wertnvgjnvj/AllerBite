@@ -4,7 +4,7 @@ import SwiftUI
 
 struct BarcodeTextScannerView: View {
     @StateObject private var vm = AppViewModel()
-
+    @ObservedObject var tabManager = TabSelectionManager.shared
     var body: some View {
     AllergyView()
         

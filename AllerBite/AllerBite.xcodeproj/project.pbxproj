@@ -15,6 +15,8 @@
 		C18C2EC52CBBB77200844694 /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC42CBBB77200844694 /* RoundedShape.swift */; };
 		C18C2EC72CBBB7BE00844694 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */; };
 		C1A5CCAF2CFCDD82000EFECC /* helloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A5CCAE2CFCDD82000EFECC /* helloView.swift */; };
+		C1DC039A2D0AD7D400C59F53 /* ScannerIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DC03992D0AD7D400C59F53 /* ScannerIntroView.swift */; };
+		C1DC039C2D0DD7B300C59F53 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DC039B2D0DD7B300C59F53 /* Design.swift */; };
 		C1EA874E2D035C5C00AAE73E /* AllergySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EA874D2D035C5C00AAE73E /* AllergySelectionView.swift */; };
 		C1FCAFC12C8B03C700963D98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */; };
 		C80294D42BE8FBA400E1E384 /* SFSymbolStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */; };
@@ -119,6 +121,8 @@
 		C18C2EC42CBBB77200844694 /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
 		C18C2EC62CBBB7BE00844694 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		C1A5CCAE2CFCDD82000EFECC /* helloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloView.swift; sourceTree = "<group>"; };
+		C1DC03992D0AD7D400C59F53 /* ScannerIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerIntroView.swift; sourceTree = "<group>"; };
+		C1DC039B2D0DD7B300C59F53 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		C1EA874D2D035C5C00AAE73E /* AllergySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergySelectionView.swift; sourceTree = "<group>"; };
 		C1FCAFC02C8B03C700963D98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C80294D32BE8FBA400E1E384 /* SFSymbolStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolStyling.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				C88000582BEE2DC100A23EEE /* ResultSheetView.swift */,
 				C13278A22CB63F1700C38643 /* AllergyViewModel.swift */,
 				C1A5CCAE2CFCDD82000EFECC /* helloView.swift */,
+				C1DC03992D0AD7D400C59F53 /* ScannerIntroView.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				C844897C2BE8F95F002B0DEC /* EventRow.swift */,
 				C844897E2BE8F96C002B0DEC /* EventSymbols.swift */,
 				C84489802BE8F979002B0DEC /* EventTask.swift */,
+				C1DC039B2D0DD7B300C59F53 /* Design.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				C8F269332C681F760093BBAB /* XCLocalSwiftPackageReference "../lottie-ios" */,
 				C85E2B552C6A362400CD448B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C876C0532C6A72A600F0F0C5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				C11178FB2D0A0C2800946CE3 /* XCRemoteSwiftPackageReference "GoogleUtilities" */,
 			);
 			productRefGroup = C87C203A2BE8F162008184BB /* Products */;
 			projectDirPath = "";
@@ -542,12 +549,14 @@
 			files = (
 				C1A5CCAF2CFCDD82000EFECC /* helloView.swift in Sources */,
 				C8D0C1432BF0B32B00DB309F /* RegistrationView.swift in Sources */,
+				C1DC039A2D0AD7D400C59F53 /* ScannerIntroView.swift in Sources */,
 				C824B86A2C6A928100332437 /* AllergyView1.swift in Sources */,
 				C88000552BEE2BD900A23EEE /* CameraPhotoCapture.swift in Sources */,
 				C88000592BEE2DC100A23EEE /* ResultSheetView.swift in Sources */,
 				C84489752BE8F92B002B0DEC /* EventData.swift in Sources */,
 				C80294D62BE8FBCD00E1E384 /* SymbolPicker.swift in Sources */,
 				C84489632BE8F54D002B0DEC /* BarcodeTextScannerApp.swift in Sources */,
+				C1DC039C2D0DD7B300C59F53 /* Design.swift in Sources */,
 				C80294D42BE8FBA400E1E384 /* SFSymbolStyling.swift in Sources */,
 				C82C13672BF0EC7200976B64 /* displayView.swift in Sources */,
 				C844896F2BE8F8F1002B0DEC /* DataScannerView.swift in Sources */,
@@ -930,6 +939,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C11178FB2D0A0C2800946CE3 /* XCRemoteSwiftPackageReference "GoogleUtilities" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleUtilities.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.2;
+			};
+		};
 		C804AB712C681E3A00BA6C4D /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google-gemini/generative-ai-swift";

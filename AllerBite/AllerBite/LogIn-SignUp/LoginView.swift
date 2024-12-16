@@ -225,78 +225,58 @@ struct LoginView: View {
                     .font(.system(size: 15))
                     .foregroundColor(Color(red: 79/255, green: 143/255, blue: 0/255))
                     .offset(x: 100)
-
+                    .onTapGesture {
+                        forgotPassword()
+                    }
+                    .padding(.bottom,30)
                 // Disable login button until email and password are filled
                 Button(action: {
                     loginUser()
                 }) {
                     Text("Login")
                         .foregroundColor(.white)
-                        .padding(EdgeInsets(top: 12, leading: 75, bottom: 12, trailing: 75))
+                        .padding(EdgeInsets(top: 12, leading: 100, bottom: 12, trailing: 100)) // Increased padding
                         .background(Color(red: 79/255, green: 143/255, blue: 0/255))
                         .cornerRadius(10)
                 }
-                .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
+                .frame(width: 600) // Increased frame width
                 .disabled(email.isEmpty || password.isEmpty)
+
 
                 NavigationLink(destination: ScreenView( userName: userName), isActive: $isLoginSuccessful) {
                     EmptyView()
                 }
+                .padding(.bottom,2)
+                Button(action: signInWithGoogle) {
+                    HStack {
+                        Image("google") // Replace with the Google logo asset name
+                            .resizable()
+                            .frame(width: 24, height: 24)
+
+                        Text("Sign in with Google")
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 50)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                }
+                .frame(width: 240)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 1)
+                )
+                .padding(.top, 5)
 
                 NavigationLink(destination: RegisterView()) {
                     Text("Create new Account")
                         .font(.system(size: 15))
                         .foregroundColor(Color(red: 79/255, green: 143/255, blue: 0/255))
                         .padding(EdgeInsets(top: 40, leading: 0, bottom: 30, trailing: 0))
-                }
+                }.padding(.top,30)
 
-                HStack(spacing: 10) {
-                    Button(action: {
-                        signInWithGoogle()
-                    }) {
-                        HStack {
-                            Image(systemName: "g.circle")
-                                .foregroundColor(Color(red: 79/255, green: 143/255, blue: 0/255))
-                        }
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(100)
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 50))
-
-                    Button(action: {
-                        print("Apple Sign-In not yet implemented")
-                    }) {
-                        HStack {
-                            Image(systemName: "apple.logo")
-                                .foregroundColor(Color(red: 79/255, green: 143/255, blue: 0/255))
-                        }
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(100)
-                    }
-                    .disabled(true) // Disable button as functionality isn't ready
-                }
-
-                // Sign Out Button
-                Button(action: {
-                    signOutUser() // Call sign-out function
-                }) {
-                    Text("Sign Out")
-                        .foregroundColor(.red)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(10)
-                }
-                .padding(.top, 20)
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Sign Out"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-                }
-
-                // Navigation link for sign-out
-                NavigationLink(destination: RegisterView(), isActive: $isSignedOut) {
-                    EmptyView()
-                }
+                
+               
             }
             .padding()
         }
@@ -327,9 +307,22 @@ struct LoginView: View {
                 showAlert = true
             } else {
                 if let user = authResult?.user {
-                    userName = user.displayName ?? "User"
+                    if user.isEmailVerified {
+                        userName = user.displayName ?? "User"
+                        isLoginSuccessful = true // Navigate only on successful login
+                    } else {
+                        alertMessage = "Your email is not verified. Please verify your email before logging in."
+                        showAlert = true
+                        // Optionally, send a verification email again
+                        user.sendEmailVerification { error in
+                            if let error = error {
+                                print("Error sending verification email: \(error.localizedDescription)")
+                            } else {
+                                print("Verification email sent.")
+                            }
+                        }
+                    }
                 }
-                isLoginSuccessful = true // Only navigate on successful login
             }
         }
     }
@@ -383,6 +376,28 @@ struct LoginView: View {
     // Helper function to get the root view controller
     func getRootViewController() -> UIViewController {
         return UIApplication.shared.windows.first?.rootViewController ?? UIViewController()
+    }
+    func forgotPassword() {
+        guard !email.isEmpty else {
+            alertMessage = "Please enter your email to reset the password."
+            showAlert = true
+            return
+        }
+
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                alertMessage = error.localizedDescription
+            } else {
+                alertMessage = "Password reset email sent to \(email)."
+            }
+            showAlert = true
+        }
+    }
+}
+
+struct View_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
     }
 }
 

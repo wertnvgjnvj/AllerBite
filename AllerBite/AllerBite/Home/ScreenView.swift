@@ -88,7 +88,7 @@ struct ScreenView: View {
                     TabView(selection: $selection) {
                         // Home Tab
 //                        HomeView(userName: "Aditya Gaba")
-                        HomeView(userViewModel: UserViewModel())
+                        HomeView(/*userViewModel: UserViewModel()*/)
                         .offset(y:0)
                             .tabItem {
                                 CustomTabItem(imageName: "house.fill", text: "Home")
